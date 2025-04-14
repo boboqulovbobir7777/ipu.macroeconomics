@@ -5,6 +5,7 @@ import MainResource from "../components/MainResource/MainResource";
 import VideoSlider from "../components/VedioSlider/VedioSlider";
 import Qushimcha from "../components/Qushumcha/Qushimcha";
 import AboutUnivercity from "../components/AboutUnivercity/AboutUnivercity";
+import AboutSite from "../components/AboutSite/AboutSite";
 
 export default function MainPage() {
   return (
@@ -14,6 +15,7 @@ export default function MainPage() {
       </PageTop>
       <AboutTeacher />
       <AboutUnivercity />
+      <AboutSite />
       <MainResource />
       <VideoSlider />
       <Qushimcha />
