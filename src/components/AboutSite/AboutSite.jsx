@@ -29,10 +29,19 @@ export default function AboutSite() {
 
   useEffect(() => {
     const countRef = ref(database, "visitorCount/makroIqtisod");
+    const pageKey = "visited_about";
 
-    runTransaction(countRef, (currentValue) => {
-      return (currentValue || 0) + 1;
-    });
+    if (!sessionStorage.getItem(pageKey)) {
+      runTransaction(countRef, (currentValue) => {
+        return (currentValue || 0) + 1;
+      })
+        .then(() => {
+          sessionStorage.setItem(pageKey, "true");
+        })
+        .catch((err) => {
+          console.error("Visitor count update failed:", err);
+        });
+    }
 
     onValue(countRef, (snapshot) => {
       const value = snapshot.val();
